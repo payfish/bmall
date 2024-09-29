@@ -1,0 +1,28 @@
+server:
+  port: 8082
+spring:
+  cloud:
+    sentinel:
+      transport:
+        dashboard: localhost:8090
+      http-method-specify: true
+hm:
+  swagger:
+    title: 购物车服务接口文档
+    package: com.hmall.cart.controller
+  db:
+    database: hm-cart
+dubbo:
+  application:
+    name: cart-service-dubbo
+    qos-enable: true
+    qos-port: 33333
+    qos-accept-foreign-ip: false
+  registry:
+    address: nacos://47.121.141.189:8848
+  protocol:
+    name: dubbo
+    port: 20880
+  consumer:
+    check: false #服务启动时，消费者是否需要检查服务提供者是否可用
+
